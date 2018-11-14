@@ -5,12 +5,8 @@ import { SessionService } from '../../session/session.service';
 
 @Injectable()
 export class NoAuthGuardService implements CanActivate {
-
-  public redirectUrl: string;
-
   constructor(private router: Router,
               private sessionService: SessionService) {
-    this.redirectUrl = '';
   }
 
   canActivate(_ign_route: ActivatedRouteSnapshot): Observable<boolean> {

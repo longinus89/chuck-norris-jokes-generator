@@ -11,8 +11,6 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
 })
 export class JokeService {
 
-  // public favoritesJokes$ = new BehaviorSubject([]);
-
   private favoritesJokesSource$: BehaviorSubject<Array<Joke>>;
   public favoritesJokes: Observable<Joke[]>;
 

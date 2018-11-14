@@ -5,12 +5,8 @@ import { SessionService } from '../../session/session.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate, CanActivateChild {
-
-  public redirectUrl: string;
-
   constructor(private router: Router,
               private sessionService: SessionService) {
-    this.redirectUrl = '';
   }
 
   canActivateChild(): Observable<boolean> {
