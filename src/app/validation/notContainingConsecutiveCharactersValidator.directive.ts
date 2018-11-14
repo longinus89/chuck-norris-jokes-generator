@@ -16,6 +16,10 @@ export function notContainingConsecutiveCharactersValidator(): ValidatorFn {
 }
 
 function checkConsecutive (chFirst, chSecond) {
-  return chFirst.charCodeAt() + 1 === chSecond.charCodeAt();
+  return isLetter(chFirst) && isLetter(chSecond) && chFirst.charCodeAt() + 1 === chSecond.charCodeAt();
+}
+
+function isLetter(str) {
+  return str.length === 1 && str.match(/[a-z]/i);
 }
 
