@@ -5,7 +5,8 @@ import { FormControl, Validators } from '@angular/forms';
 
 import { noUppercaseValidator } from '../../validation/noUppercaseValidator.directive';
 import { noEquivocalValidator } from '../../validation/noEquivocalValidator.directive';
-import { noOverlappingPairsValidator } from 'src/app/validation/noOverlappingPairsValidator.directive';
+import { noOverlappingPairsValidator } from '../../validation/noOverlappingPairsValidator.directive';
+import { notContainingConsecutiveCharactersValidator } from '../../validation/notContainingConsecutiveCharactersValidator.directive';
 
 @Component({
   templateUrl: './login.component.html'
@@ -32,6 +33,8 @@ export class LoginComponent implements OnInit {
       return 'You cannot use i, O or l characters in the password.';
     } else if (this.password.hasError('noUppercase')) {
       return 'You cannot use uppercase characters in the password.';
+    } else if (this.password.hasError('notContainingConsecutiveCharacters')) {
+      return 'The string must include one increasing straight of at least three letters: e.g. abc, cde, fgh;';
     } else if (this.password.hasError('noOverlappingPairs')) {
       return 'The string must contain at least 2 not overlapping pairs of characters.';
     }
@@ -47,6 +50,7 @@ export class LoginComponent implements OnInit {
     validators.push(noUppercaseValidator(/^((?![A-Z]).)*$/));
     validators.push(noEquivocalValidator(/^((?![iOl]).)*$/));
     validators.push(noOverlappingPairsValidator());
+    validators.push(notContainingConsecutiveCharactersValidator());
     this.password = new FormControl('', validators);
 
     this.hidePassword = true;
