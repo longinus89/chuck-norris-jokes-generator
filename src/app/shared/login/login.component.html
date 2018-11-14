@@ -1,0 +1,30 @@
+<div class="login">
+  <h1 mat-dialog-title>{{loginTitle}}</h1>
+  <form role="form" name="loginForm" class="container" (ngSubmit)="doLogin()">
+    <mat-form-field>
+      <input type="text"
+            [(ngModel)]="credentials.username"
+            name="username"
+            class="form-control input-sm"
+            placeholder="Username"
+            matInput autofocus/>
+    </mat-form-field>
+    <mat-form-field>
+      <input [type]="hidePassword ? 'password' : 'text'"
+            [formControl]="password"
+            name="password"
+            class="form-control input-sm"
+            placeholder="Password"
+            matInput autofocus required/>
+      <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <button mat-raised-button 
+              color="primary" 
+              type="submit" 
+              name="action"
+              [disabled]="loggingIn || !password.valid">LOGIN</button>
+    <mat-error *ngIf="!password.valid">
+        {{getErrorMessage()}}
+      </mat-error>
+  </form>
+</div>

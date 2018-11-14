@@ -1,0 +1,20 @@
+<div class="jokes-list">
+  <mat-card class="joke-entry" *ngFor="let entry of jokesList">
+    <mat-card-header>
+      <div mat-card-avatar class="joke-id" [title]="entry.id">{{entry.id}}</div>
+      <mat-card-title class="joke-text" [innerHTML]="entry.joke"></mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <app-tags-list *ngIf="entry.categories.length" [tags]=entry.categories></app-tags-list>
+      <div class="favorites-bar">
+        <button mat-raised-button
+              class="add-joke-button" 
+              color="primary" 
+              [title]="'Add to favorites'" 
+              (click)="addJokeToFavorites(entry)"
+              [disabled]="isJokeInFavorites(entry) || isFavoritesListFull()">Favorite</button>
+        <mat-icon matSuffix class="favorite-icon" *ngIf="isJokeInFavorites(entry)">favorite</mat-icon>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

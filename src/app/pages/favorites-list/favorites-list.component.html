@@ -1,0 +1,17 @@
+<div class="jokes-list">
+  <mat-card class="joke-entry" *ngFor="let entry of favoritesList">
+    <mat-card-header>
+      <div mat-card-avatar class="joke-id" [title]="entry.id">{{entry.id}}</div>
+      <mat-card-title class="joke-text" [innerHTML]="entry.joke"></mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <app-tags-list *ngIf="entry.categories.length" [tags]=entry.categories></app-tags-list>    
+      <button mat-raised-button
+              class="remove-joke-button"  
+              color="warn" 
+              [title]="'Remove from favorites'"
+              (click)="jokeService.removeFromFavorites(entry)">Remove</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card *ngIf="!favoritesList.length" class="joke-entry joke-empty-entry" [innerHTML]="emptyListMessage">Simple card</mat-card>
+</div>

@@ -1,0 +1,23 @@
+.jokes-list {
+  .joke-entry {
+    width: 80%;
+    margin: 0px auto 10px;
+  }
+  .joke-id {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #000;
+    line-height: 40px;
+    text-align: center;
+    background: orange;
+  }
+  .remove-joke-button {
+    margin: 0;
+  }
+  .joke-empty-entry {
+    text-align: center;
+  }
+  padding-top: 10px;
+}

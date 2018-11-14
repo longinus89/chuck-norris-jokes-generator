@@ -1,0 +1,30 @@
+.action-bar {
+  .action-bar-left {
+    float: left;
+    background-color: #0066ff52;
+    width:70%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    button {
+      margin-right: 10px;
+    }
+    .autofill-enabled {
+      background-color: yellow;
+      color: #000;
+    }
+  }
+  .action-bar-right {
+    float: left;
+    background-color: #fff;
+    color: #000;
+    width:30%;
+    height: 100%;
+  }
+  
+  height: 65px;
+  width: 100%;
+}

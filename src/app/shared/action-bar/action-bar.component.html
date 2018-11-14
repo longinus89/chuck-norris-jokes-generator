@@ -1,0 +1,19 @@
+<div class="action-bar">
+  <div class="action-bar-left"> 
+    <button mat-raised-button
+            class="load-joke-button"  
+            color="basic" 
+            [title]="'Load new Jokes'"
+            (click)="loadNewJokes()">Load new Jokes</button>
+    <button mat-raised-button
+            class="autofill-joke-button"  
+            color="warn" 
+            [title]="'Auto fill favorites'"
+            [ngClass]="{'autofill-enabled': (autofillEnabled && !isFavoritesListFull() )}"
+            (click)="toggleAutofill()"
+            [disabled]="isFavoritesListFull()">Autofill favorites</button>
+  </div>
+  <div class="action-bar-right"> 
+    <router-outlet name="user-bar"></router-outlet>
+  </div>
+</div>
